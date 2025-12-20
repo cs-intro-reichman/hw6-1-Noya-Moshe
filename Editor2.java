@@ -1,5 +1,4 @@
-import java.awt.Color;
-
+import java.awt.Color; 
 /**
  * Demonstrates the scaling (resizing) operation featured by Runigram.java. 
  * The program recieves three command-line arguments: a string representing the name
@@ -11,6 +10,20 @@ public class Editor2 {
 
 	public static void main (String[] args){
 		//// Replace this comment with your code.
-		//// This function is similar to the main function of Editor1.java			
+		//// This function is similar to the main function of Editor1.java	
+		String fileName = args[0];
+		int newWidth = Integer.parseInt(args[1]);	
+		int newHeight = Integer.parseInt(args[2]);	
+
+		Color[][] imageIn = Runigram.read(fileName);
+
+		Color[][] imageOut = Runigram.scaled(imageIn, newWidth, newHeight);
+
+		Runigram.setCanvas(imageIn);
+		Runigram.display(imageIn);
+		StdDraw.pause(3000);
+
+		Runigram.setCanvas(imageOut);
+		Runigram.display(imageOut);
 	}
 }
